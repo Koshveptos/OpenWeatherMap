@@ -87,7 +87,8 @@ def run_analystic():
 
         
 
-
+if __name__ == "__main__":
+    run_analystic()
 
 # uploaded_file = st.file_uploader('Выберите csv файл ',type = ['csv'])
 
