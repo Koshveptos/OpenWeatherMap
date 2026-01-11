@@ -13,7 +13,7 @@ from joblib import Parallel, delayed
 from loguru import logger
 from scipy import stats
 
-from api_utils import get_current_weather_async, get_current_weather_sync
+from api_utils import get_current_weather_sync
 
 
 class HistoricalDataAnalyzer:
@@ -179,8 +179,6 @@ class HistoricalDataAnalyzer:
         logger.info(f"Analyzing current weather for {city} using {method}")
         if method == "sync":
             current = get_current_weather_sync(city, api_key)
-        elif method == "async":
-            current = asyncio.run(get_current_weather_async(city, api_key))
         else:
             raise ValueError("Invalid API method")
 
