@@ -1,5 +1,5 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 ##взято из задания для генерации даных
 # Реальные средние температуры (примерные данные) для городов по сезонам
@@ -22,10 +22,21 @@ seasonal_temperatures = {
 }
 
 # Сопоставление месяцев с сезонами
-month_to_season = {12: "winter", 1: "winter", 2: "winter",
-                   3: "spring", 4: "spring", 5: "spring",
-                   6: "summer", 7: "summer", 8: "summer",
-                   9: "autumn", 10: "autumn", 11: "autumn"}
+month_to_season = {
+    12: "winter",
+    1: "winter",
+    2: "winter",
+    3: "spring",
+    4: "spring",
+    5: "spring",
+    6: "summer",
+    7: "summer",
+    8: "summer",
+    9: "autumn",
+    10: "autumn",
+    11: "autumn",
+}
+
 
 # Генерация данных о температуре
 def generate_realistic_temperature_data(cities, num_years=10):
@@ -41,15 +52,11 @@ def generate_realistic_temperature_data(cities, num_years=10):
             data.append({"city": city, "timestamp": date, "temperature": temperature})
 
     df = pd.DataFrame(data)
-    df['season'] = df['timestamp'].dt.month.map(lambda x: month_to_season[x])
+    df["season"] = df["timestamp"].dt.month.map(lambda x: month_to_season[x])
     return df
-
-
 
 
 if __name__ == "__main__":
     # Генерация данных
     data = generate_realistic_temperature_data(list(seasonal_temperatures.keys()))
-    data.to_csv('temperature_data.csv', index=False)
-
-    
+    data.to_csv("temperature_data.csv", index=False)
