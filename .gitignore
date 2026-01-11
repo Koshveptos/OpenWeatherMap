@@ -4,39 +4,18 @@ __pycache__/
 *$py.class
 *.so
 .Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
 
 # Virtual Environment
 venv/
 env/
-ENV/
 wetherapi-py3.13/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
 
 # IDE
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
-
-# Jupyter Notebook
-.ipynb_checkpoints/
 
 # OS
 .DS_Store
@@ -48,9 +27,10 @@ Thumbs.db
 # Data files
 *.db
 *.sqlite
-data/
-*.csv
-*.xlsx
+temperature_data.db
 
 # Streamlit
 .streamlit/
+
+# PyTest
+.pytest_cache/
