@@ -1,0 +1,10 @@
+__pycache__/
+.venv/
+.env
+.env.*
+.git
+.gitignore
+.streamlit/secrets.toml
+.ipynb_checkpoints/
+*.csv
+TZ.ipynb

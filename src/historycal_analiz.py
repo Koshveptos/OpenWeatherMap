@@ -199,7 +199,14 @@ class HistoricalDataAnalyzer:
         seasonal_std = seasonal_stats.loc[season, "std"]
 
         deviation = current["temperature"] - seasonal_mean
-        is_anomaly = abs(deviation) > seasonal_std * 2
+        # 7.85 > 2 * 5
+        """
+        вот тут немного затупил, из-за данных, на момент эксперемента аномалий не было, что меня смутило
+        но потом, на следующий день увидел одну аномалию, вначале запутался поэтому написал не по условию детект аномалии
+        (закоменченая строчка) но потом вроде разобрался
+        """
+        is_anomaly = abs(deviation) > abs(seasonal_std) * 2
+        # is_anomaly = abs(deviation) > (abs(seasonal_std) + abs(seasonal_mean)) # исправил из-за условя, было seasonal_std  * 2
 
         return {
             "current_temp": current["temperature"],
